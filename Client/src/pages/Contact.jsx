@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import toast from "react-hot-toast";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -10,7 +11,6 @@ const Contact = () => {
   });
 
   const [loading, setLoading] = useState(false);
-  const [status, setStatus] = useState("");
 
   const handleChange = (e) => {
     setFormData({
@@ -22,7 +22,8 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setStatus("");
+
+    const toastId = toast.loading("Sending message...");
 
     try {
       const res = await fetch("http://localhost:5000/api/contact", {
@@ -32,13 +33,13 @@ const Contact = () => {
       });
 
       if (res.ok) {
-        setStatus("success");
+        toast.success("Message sent successfully ✅", { id: toastId });
         setFormData({ name: "", email: "", message: "" });
       } else {
-        setStatus("error");
+        toast.error("Something went wrong ❌", { id: toastId });
       }
     } catch {
-      setStatus("error");
+      toast.error("Server error ❌", { id: toastId });
     }
 
     setLoading(false);
@@ -69,11 +70,13 @@ const Contact = () => {
             Specialized in React, Node.js & Modern Web Technologies.
           </p>
 
+          {/* Info */}
           <div className="space-y-2">
             <p>📍 Bhopal, India</p>
-            <p>📧 yourmail@gmail.com</p>
+            <p>📧 nvish5979@gmail.com</p>
           </div>
 
+          {/* Social Icons */}
           <div className="flex space-x-6 text-2xl mt-6">
             <a href="#" className="hover:text-blue-400 transition">
               <FaGithub />
@@ -87,7 +90,7 @@ const Contact = () => {
           </div>
         </motion.div>
 
-        {/* Right Side Glass Form */}
+        {/* Right Side Form */}
         <motion.div
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
@@ -95,6 +98,7 @@ const Contact = () => {
           className="backdrop-blur-lg bg-white/10 border border-white/20 p-8 rounded-2xl shadow-xl"
         >
           <form onSubmit={handleSubmit} className="space-y-5">
+
             <input
               type="text"
               name="name"
@@ -133,17 +137,6 @@ const Contact = () => {
               {loading ? "Sending..." : "Send Message"}
             </button>
 
-            {status === "success" && (
-              <p className="text-green-400 text-center">
-                Message Sent Successfully ✅
-              </p>
-            )}
-
-            {status === "error" && (
-              <p className="text-red-400 text-center">
-                Something went wrong ❌
-              </p>
-            )}
           </form>
         </motion.div>
 

@@ -9,7 +9,10 @@ export const sendContactEmail = async (req, res) => {
     const newContact = new Contact({ name, email, message });
     await newContact.save();
 
-    // 2️⃣ Send Email
+    // ⚡ 2️⃣ Instant Response (FAST)
+    res.status(200).json({ message: "Message sent successfully" });
+
+    // 📨 3️⃣ Send Email in Background (no await)
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
@@ -18,7 +21,7 @@ export const sendContactEmail = async (req, res) => {
       },
     });
 
-    await transporter.sendMail({
+    transporter.sendMail({
       from: email,
       to: process.env.EMAIL_USER,
       subject: `Portfolio Contact from ${name}`,
@@ -29,9 +32,11 @@ Email: ${email}
 Message:
 ${message}
       `,
+    }).then(() => {
+      console.log("Email sent");
+    }).catch((err) => {
+      console.log("Email error:", err);
     });
-
-    res.status(200).json({ message: "Message saved & Email sent" });
 
   } catch (error) {
     console.log(error);

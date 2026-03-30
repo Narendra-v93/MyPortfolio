@@ -12,7 +12,7 @@ const About = () => {
     >
       <div className="max-w-6xl mx-auto">
 
-        {/* Section Title */}
+        {/* Title */}
         <motion.h2
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -24,7 +24,7 @@ const About = () => {
 
         <div className="grid md:grid-cols-2 gap-16 items-center">
 
-          {/* Left Content */}
+          {/* LEFT CONTENT */}
           <motion.div
             initial={{ opacity: 0, x: -60 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -32,14 +32,14 @@ const About = () => {
             className="space-y-6"
           >
             <p className="text-lg text-gray-300 leading-relaxed">
-              I'm a passionate <span className="text-purple-400 font-semibold">Full Stack Developer</span> with hands-on experience building fast, scalable, and responsive web applications using the MERN stack and relational databases.
+              I'm a passionate <span className="text-purple-400 font-semibold">Full Stack Developer</span> with experience building modern web apps.
             </p>
 
             <p className="text-lg text-gray-400 leading-relaxed">
-              I specialize in creating secure RESTful APIs, modern frontend interfaces, and managing complete deployment pipelines using tools like Docker and Git. I love solving real-world problems with efficient and user-centered solutions.
+              I create fast, scalable and user-friendly applications using MERN stack and modern tools.
             </p>
 
-            {/* Skills Icons */}
+            {/* Icons */}
             <div className="flex flex-wrap gap-6 pt-6 text-3xl text-gray-400">
               <FaReact className="hover:text-blue-400 hover:scale-125 transition duration-300" />
               <FaNodeJs className="hover:text-green-400 hover:scale-125 transition duration-300" />
@@ -49,7 +49,7 @@ const About = () => {
               <FaDatabase className="hover:text-purple-400 hover:scale-125 transition duration-300" />
             </div>
 
-            {/* Status */}
+            {/* Stats */}
             <div className="grid grid-cols-2 gap-6 pt-10 border-t border-white/10">
               <div>
                 <h3 className="text-3xl font-bold text-purple-400">1+</h3>
@@ -62,26 +62,48 @@ const About = () => {
             </div>
           </motion.div>
 
-          {/* Right Image Card */}
+          {/* RIGHT IMAGE (3D TILT) */}
           <motion.div
             initial={{ opacity: 0, x: 60 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
             className="flex justify-center"
           >
-            <div className="relative group">
-              
-              {/* Glow Effect */}
-              <div className="absolute -inset-2 bg-gradient-to-r from-purple-600 to-blue-600 rounded-3xl blur-xl opacity-30 group-hover:opacity-50 transition duration-500"></div>
+            <div className="relative group perspective-[1000px]">
 
-              {/* Glass Card */}
-              <div className="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-6 shadow-2xl">
+              {/* Glow */}
+              <div className="absolute -inset-2 bg-gradient-to-r from-purple-600 to-blue-600 rounded-3xl blur-xl opacity-30 group-hover:opacity-60 transition duration-500"></div>
+
+              {/* 3D Card */}
+              <motion.div
+                className="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-4 shadow-2xl transition-transform duration-300"
+                style={{ transformStyle: "preserve-3d" }}
+                onMouseMove={(e) => {
+                  const rect = e.currentTarget.getBoundingClientRect();
+                  const x = e.clientX - rect.left;
+                  const y = e.clientY - rect.top;
+
+                  const centerX = rect.width / 2;
+                  const centerY = rect.height / 2;
+
+                  const rotateX = -(y - centerY) / 15;
+                  const rotateY = (x - centerX) / 15;
+
+                  e.currentTarget.style.transform =
+                    `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform =
+                    "rotateX(0deg) rotateY(0deg) scale(1)";
+                }}
+              >
                 <img
                   src={photo}
                   alt="Narendra"
-                  className="w-80 h-96 object-cover rounded-2xl group-hover:scale-105 transition duration-500"
+                  className="w-80 h-96 object-cover rounded-2xl"
                 />
-              </div>
+              </motion.div>
+
             </div>
           </motion.div>
 

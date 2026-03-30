@@ -6,9 +6,12 @@ import Skills from "./pages/Skills";
 import Project from "./pages/Project";
 import Contact from "./pages/Contact";
 import Footer from "./components/Footer";
+import Loading from "./components/Loading";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 
+// ✅ ADD THIS
+import { Toaster } from "react-hot-toast";
 
 const particlesInit = async (main) => {
   await loadFull(main);
@@ -17,8 +20,16 @@ const particlesInit = async (main) => {
 const App = () => {
   const [darkMode, setDarkMode] = useState(true);
   const [activeSection, setActiveSection] = useState("hero");
+  const [isLoading, setIsLoading] = useState(true);
 
-  // Active section detection
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   useEffect(() => {
     const handleScroll = () => {
       const sections = ["hero", "about", "skills", "projects", "contact"];
@@ -45,9 +56,16 @@ const App = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  return (
-    <div className={`min-h-screen ${darkMode ? "bg-gray-900 text-white" : "bg-gray-50 text-black"}`}>
+  if (isLoading) {
+    return <Loading darkMode={darkMode} />;
+  }
 
+  return (
+    <div
+      className={`min-h-screen ${
+        darkMode ? "bg-gray-900 text-white" : "bg-gray-50 text-black"
+      }`}
+    >
       {/* Particles Background */}
       <Particles
         id="tsparticles"
@@ -79,7 +97,6 @@ const App = () => {
 
       {/* Main Sections */}
       <main>
-
         <section id="hero" className="pt-28 min-h-screen">
           <Home darkMode={darkMode} />
         </section>
@@ -99,10 +116,21 @@ const App = () => {
         <section id="contact" className="pt-28 min-h-screen">
           <Contact />
         </section>
-
       </main>
 
       <Footer />
+
+      {/* 🔥 IMPORTANT: TOASTER */}
+      <Toaster
+        position="top-right"
+        toastOptions={{
+          style: {
+            background: "#111",
+            color: "#fff",
+            border: "1px solid #333",
+          },
+        }}
+      />
     </div>
   );
 };
