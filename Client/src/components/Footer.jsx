@@ -34,7 +34,7 @@ const Footer = () => {
 
             {/* Twitter */}
             <a
-              href="https://x.com/home"
+              href="https://x.com/NarendraVi13694"
               target="_blank"
               rel="noopener noreferrer"
               className="group flex flex-col items-center text-gray-400 transition duration-300"
