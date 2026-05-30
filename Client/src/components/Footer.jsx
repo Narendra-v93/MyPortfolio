@@ -19,7 +19,7 @@ const Footer = () => {
 
             {/* Instagram */}
             <a
-              href="https://www.instagram.com/"
+              href="https://www.instagram.com/narendrav_/"
               target="_blank"
               rel="noopener noreferrer"
               className="group flex flex-col items-center text-gray-400 transition duration-300"
@@ -49,7 +49,7 @@ const Footer = () => {
 
             {/* WhatsApp */}
             <a
-              href="https://wa.me/919876543210"
+              href="https://wa.me/919301603847"
               target="_blank"
               rel="noopener noreferrer"
               className="group flex flex-col items-center text-gray-400 transition duration-300"
