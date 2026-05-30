@@ -16,11 +16,11 @@ const ResumePDF = () => (
       {/* Header */}
       <View style={styles.section}>
         <Text style={styles.header}>NARENDRA VISHWAKARMA</Text>
-        <Text style={styles.text}>Email: <link rel="stylesheet" href="narendravishvkarma1@gmail.com" /></Text>
+        <Text style={styles.text}>Email: <link rel="stylesheet" href="narendravishvkarma1@gmail.com" />narendravishvkarma1@gmail.com"</Text>
         <Text style={styles.text}>Phone: "+919301603847"</Text>
-        <Text style={styles.text}>GitHub: <link rel="stylesheet" href="https://github.com/Narendra-v93" /></Text>
-        <Text style={styles.text}>Portfolio: <link rel="stylesheet" href="https://narendra-portfo.vercel.app/" /></Text>
-        <Text style={styles.text}>LinkedIn: <link rel="stylesheet" href="https://linkedin.com/in/narendra-vishwakarma" /></Text>
+        <Text style={styles.text}>GitHub: <link rel="stylesheet" href="https://github.com/Narendra-v93" />https://github.com/Narendra-v93</Text>
+        <Text style={styles.text}>Portfolio: <link rel="stylesheet" href="https://narendra-portfo.vercel.app/" />https://narendra-portfo.vercel.app/</Text>
+        <Text style={styles.text}>LinkedIn: <link rel="stylesheet" href="https://linkedin.com/in/narendra-vishwakarma" />https://linkedin.com/in/narendra-vishwakarma</Text>
       </View>
 
       {/* Professional Summary */}
