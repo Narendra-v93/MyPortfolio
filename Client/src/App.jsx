@@ -7,15 +7,19 @@ import Project from "./pages/Project";
 import Contact from "./pages/Contact";
 import Footer from "./components/Footer";
 import Loading from "./components/Loading";
-import Particles from "react-tsparticles";
-import { loadFull } from "tsparticles";
+
 
 // ✅ ADD THIS
 import { Toaster } from "react-hot-toast";
 
-const particlesInit = async (main) => {
-  await loadFull(main);
+import Particles from "@tsparticles/react";
+import { loadSlim } from "@tsparticles/slim";
+
+const particlesInit = async (engine) => {
+  await loadSlim(engine);
 };
+
+
 
 const App = () => {
   const [darkMode, setDarkMode] = useState(true);
