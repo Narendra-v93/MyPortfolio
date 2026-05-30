@@ -14,31 +14,14 @@ const ResumePDF = () => (
   <Document>
     <Page style={styles.page}>
       {/* Header */}
-     <View style={styles.section}>
-  <Text style={styles.header}>NARENDRA VISHWAKARMA</Text>
-
-  <Text style={styles.text}>
-    Email: <Link src="mailto:narendravishvkarma1@gmail.com">narendravishvkarma1@gmail.com</Link>
-  </Text>
-
-  <Text style={styles.text}>
-    Phone: <Link src="tel:+919301603847">+91 9301603847</Link>
-  </Text>
-
-  <Text style={styles.text}>
-    GitHub: <Link src="https://github.com/Narendra-v93">github.com/Narendra-v93</Link>
-  </Text>
-
-  <Text style={styles.text}>
-    Portfolio: <Link src="https://narendra-portfo.vercel.app/">narendra-portfo.vercel.app</Link>
-  </Text>
-
-  <Text style={styles.text}>
-    LinkedIn: <Link src="https://linkedin.com/in/narendra-vishwakarma">
-      linkedin.com/in/narendra-vishwakarma
-    </Link>
-  </Text>
-</View>
+      <View style={styles.section}>
+        <Text style={styles.header}>NARENDRA VISHWAKARMA</Text>
+        <Text style={styles.text}>Email: <link rel="stylesheet" href="narendravishvkarma1@gmail.com" /></Text>
+        <Text style={styles.text}>Phone: "+919301603847"</Text>
+        <Text style={styles.text}>GitHub: <link rel="stylesheet" href="https://github.com/Narendra-v93" /></Text>
+        <Text style={styles.text}>Portfolio: <link rel="stylesheet" href="https://narendra-portfo.vercel.app/" /></Text>
+        <Text style={styles.text}>LinkedIn: <link rel="stylesheet" href="https://linkedin.com/in/narendra-vishwakarma" /></Text>
+      </View>
 
       {/* Professional Summary */}
       <View style={styles.section}>
