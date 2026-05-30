@@ -17,10 +17,10 @@ const ResumePDF = () => (
       <View style={styles.section}>
         <Text style={styles.header}>NARENDRA VISHWAKARMA</Text>
         <Text style={styles.text}>Email: narendravishvkarma1@gmail.com</Text>
-        <Text style={styles.text}>Phone: 9301603847</Text>
-        <Text style={styles.text}>GitHub: github.com/Narendra-v93</Text>
-        <Text style={styles.text}>Portfolio: yourportfolio.com</Text>
-        <Text style={styles.text}>LinkedIn: linkedin.com/in/narendra-vishwakarma</Text>
+        <Text style={styles.text}>Phone: "+919301603847"</Text>
+        <Text style={styles.text}>GitHub: "github.com/Narendra-v93"</Text>
+        <Text style={styles.text}>Portfolio: "https://narendra-portfo.vercel.app/"</Text>
+        <Text style={styles.text}>LinkedIn: "linkedin.com/in/narendra-vishwakarma"</Text>
       </View>
 
       {/* Professional Summary */}
